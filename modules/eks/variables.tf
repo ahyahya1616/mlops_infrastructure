@@ -27,7 +27,7 @@ variable "private_subnet_ids" {
 variable "node_instance_types" {
   description = "Instance types for the managed node group"
   type        = list(string)
-  default     = ["t3.large"]
+  default     = ["m7i-flex.large"]
 }
 
 variable "node_desired_size" {
@@ -53,3 +53,4 @@ variable "environment" {
   type        = string
   default     = "lab"
 }
+

@@ -32,3 +32,4 @@ resource "aws_eks_addon" "kube_proxy" {
   addon_name                  = "kube-proxy"
   resolve_conflicts_on_update = "OVERWRITE"
 }
+

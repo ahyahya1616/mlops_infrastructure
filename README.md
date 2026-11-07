@@ -73,3 +73,4 @@ kubectl get daemonset -n kube-system aws-network-policy-agent
 ```bash
 terraform destroy -auto-approve
 ```
+

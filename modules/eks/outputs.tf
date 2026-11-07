@@ -37,3 +37,4 @@ output "oidc_provider_url" {
   description = "URL of the OIDC Issuer"
   value       = aws_eks_cluster.this.identity[0].oidc[0].issuer
 }
+

@@ -29,3 +29,4 @@ module "eks" {
   node_max_size       = var.node_max_size
   environment         = var.environment
 }
+

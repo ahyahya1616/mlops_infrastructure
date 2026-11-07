@@ -27,3 +27,4 @@ output "nat_public_ip" {
   description = "Public Elastic IP assigned to the NAT Gateway"
   value       = aws_eip.nat.public_ip
 }
+
