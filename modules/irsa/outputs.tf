@@ -22,3 +22,4 @@ output "namespace" {
   description = "Namespace where the ServiceAccount resides"
   value       = kubernetes_namespace.this.metadata[0].name
 }
+
