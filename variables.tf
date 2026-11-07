@@ -79,3 +79,30 @@ variable "node_max_size" {
   default     = 3
 }
 
+# ==============================================================================
+# Phase 3: ECR, S3 & IRSA Variables
+# ==============================================================================
+variable "ecr_repository_name" {
+  description = "Name of the private Amazon ECR repository"
+  type        = string
+  default     = "financial-data-agent"
+}
+
+variable "s3_bucket_name" {
+  description = "Name of the private S3 bucket for financial datasets"
+  type        = string
+  default     = "mlops-financial-data-240797212774-lab"
+}
+
+variable "k8s_namespace" {
+  description = "Kubernetes namespace for the pipeline workloads"
+  type        = string
+  default     = "kubeflow"
+}
+
+variable "service_account_name" {
+  description = "Kubernetes ServiceAccount name for IRSA federation"
+  type        = string
+  default     = "financial-data-sa"
+}
+

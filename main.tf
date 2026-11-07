@@ -30,3 +30,33 @@ module "eks" {
   environment         = var.environment
 }
 
+# 3. ECR Module: Private Container Registry with scan-on-push & lifecycle rules
+module "ecr" {
+  source = "./modules/ecr"
+
+  repository_name = var.ecr_repository_name
+  environment     = var.environment
+}
+
+# 4. S3 Module: Encrypted Financial Data Lake with strict Public Access Block
+module "s3" {
+  source = "./modules/s3"
+
+  bucket_name = var.s3_bucket_name
+  environment = var.environment
+}
+
+# 5. IRSA Module: OIDC IAM Role + Scoped S3 Policy + Kubernetes ServiceAccount
+module "irsa" {
+  source = "./modules/irsa"
+
+  cluster_name         = module.eks.cluster_name
+  oidc_provider_arn    = module.eks.oidc_provider_arn
+  oidc_provider_url    = module.eks.oidc_provider_url
+  s3_bucket_arn        = module.s3.bucket_arn
+  k8s_namespace        = var.k8s_namespace
+  service_account_name = var.service_account_name
+  environment          = var.environment
+}
+
+

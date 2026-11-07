@@ -11,3 +11,9 @@ node_desired_size   = 2
 node_min_size       = 1
 node_max_size       = 3
 
+# Phase 3 Configuration
+ecr_repository_name  = "financial-data-agent"
+s3_bucket_name       = "mlops-financial-data-240797212774-lab"
+k8s_namespace        = "kubeflow"
+service_account_name = "financial-data-sa"
+

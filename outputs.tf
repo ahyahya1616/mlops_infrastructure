@@ -37,3 +37,42 @@ output "configure_kubectl_command" {
   value       = "aws eks update-kubeconfig --region ${var.aws_region} --name ${module.eks.cluster_name}"
 }
 
+# ==============================================================================
+# Phase 3 Outputs: ECR, S3 & IRSA
+# ==============================================================================
+
+output "ecr_repository_url" {
+  description = "URL of the Amazon ECR private repository"
+  value       = module.ecr.repository_url
+}
+
+output "ecr_repository_arn" {
+  description = "ARN of the Amazon ECR private repository"
+  value       = module.ecr.repository_arn
+}
+
+output "s3_bucket_name" {
+  description = "Name of the S3 bucket for financial datasets"
+  value       = module.s3.bucket_name
+}
+
+output "s3_bucket_arn" {
+  description = "ARN of the S3 bucket for financial datasets"
+  value       = module.s3.bucket_arn
+}
+
+output "irsa_iam_role_arn" {
+  description = "IAM Role ARN assumed by the financial agent via IRSA"
+  value       = module.irsa.role_arn
+}
+
+output "irsa_service_account_name" {
+  description = "Kubernetes ServiceAccount bound to the IRSA role"
+  value       = module.irsa.service_account_name
+}
+
+output "irsa_namespace" {
+  description = "Kubernetes namespace where the IRSA ServiceAccount is deployed"
+  value       = module.irsa.namespace
+}
+
